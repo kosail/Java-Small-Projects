@@ -29,7 +29,7 @@ public class FileEngine {
             System.out.printf("%d %s files created.\n",filesCounter, fileExtension);
 
         } catch (IOException e) {
-            System.out.println("An exception has ocurred.");
+            System.out.println("An exception has ocurred. Details:\n" + e);
         }
 
     }
@@ -43,7 +43,7 @@ public class FileEngine {
             bufferForJavaWritter.write(javaBasicSyntax);
             bufferForJavaWritter.close();
         } catch (IOException e) {
-            System.out.println("An exception has ocurred.");
+            System.out.println("An exception has ocurred. Details:\n" + e);
         }
     }
 
