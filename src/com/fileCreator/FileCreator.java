@@ -53,11 +53,14 @@ class FileCreator extends FileCreatorEngine {
             FileWriter fileSyntaxWritter = new FileWriter(completeFilePath);
             BufferedWriter bufferForWritter = new BufferedWriter(fileSyntaxWritter);
 
-            if (packageName.equals("psc")) { // Write psc file syntax if packageName is == to "psc", as mentioned in line 14
+            // Write psc file syntax if packageName is == to "psc", as mentioned in line 14
+            if (packageName.equals("psc")) { 
                 BasicSyntax = String.format("// \nAlgoritmo %s\n\t\nFinAlgoritmo",fileNameForClass);
-            } else if (fileExtension.equals(".java") && packageName==null) { // If it's a java file but there was no package name provided
+            // If it's a java file but there was no package name provided
+            } else if (fileExtension.equals(".java") && packageName==null) {
                 BasicSyntax = String.format("public class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",fileNameForClass);
-            } else { // Later on when scalating code to make C or SQL files, make this into something like if fileExtension.equals(".java") && foo foo.
+            // Later on when scalating code to make C or SQL files, make this "else" into an smarter structure. As for now, it fulfills.
+            } else { 
                 BasicSyntax = String.format("package %s;\n\npublic class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",packageName,fileNameForClass);
             }
 
