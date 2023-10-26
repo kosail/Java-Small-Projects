@@ -1,12 +1,22 @@
 package com.fileCreator;
 
 public class Main {
-    public static void main(String[] args) {
-        if (args.length!=4) {
-            System.out.printf("Usage: java thisProgram fileName fileExtension filePath fileAmount.");
+    public static void main(String[] args) throws java.io.IOException {
+        FileCreator newFile = null;
+        int fileAmount = 0;
+
+        if (args.length==5) {
+            fileAmount = Integer.parseInt(args[3]);
+            newFile = new FileCreator(args[0], args[1], args[2], fileAmount, args[4]);
+        } else if (args.length==4) {
+            fileAmount = Integer.parseInt(args[3]);
+            newFile = new FileCreator(args[0], args[1], args[2], fileAmount);
         } else {
-            short fileAmount = Short.parseShort(args[3]);
-            FileEngine.fileEngine(args[0], args[1], args[2], fileAmount);
+            System.out.printf("Usage: java thisProgram fileName fileExtension filePath fileAmount packageName[optional, just for .java files]");
+            System.exit(1);
+        }
+        if (newFile!=null) {
+            newFile.createNewFile();
         }
     }    
 }
