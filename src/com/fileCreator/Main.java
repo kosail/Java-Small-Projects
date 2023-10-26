@@ -1,5 +1,11 @@
 package com.fileCreator;
 
+/*
+This program is to create files in bulk. This CLI version receives the instructions for the files creation through parameters over terminal.
+Usage: java .com.fileCreator.Main fileName fileExtension filePath fileAmount packageName
+packageName is an optional parameter and is not mandatory to use
+*/
+
 public class Main {
     public static void main(String[] args) throws java.io.IOException {
         FileCreator newFile = null;
