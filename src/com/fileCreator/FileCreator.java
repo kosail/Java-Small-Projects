@@ -11,6 +11,7 @@ class FileCreator extends FileCreatorEngine {
     public FileCreator(String fileName, String fileExtension, String filePath, int fileAmount) {
         super(fileName, fileExtension, filePath, fileAmount);
 
+        // if no package name provided, create empty files. However, if it's a PSeInt type file, manually assign the package name to psc
         if (fileExtension.equals(".psc")) {
             this.packageName = "psc";
         }
@@ -35,10 +36,10 @@ class FileCreator extends FileCreatorEngine {
                     if (packageName!=null) {
                             String fileNameForClass = String.format("%s%d", fileName,i);
                             fileFiller(completeFilePath, fileNameForClass, packageName);
+                            filesCounter += 1; // To keep tracking of only and every file created
                         }
                     }
 
-                    filesCounter += 1;
                 }
             System.out.printf("%d %s files created.\n",filesCounter, fileExtension);
         } catch (IOException e) {
@@ -52,9 +53,9 @@ class FileCreator extends FileCreatorEngine {
             FileWriter fileSyntaxWritter = new FileWriter(completeFilePath);
             BufferedWriter bufferForWritter = new BufferedWriter(fileSyntaxWritter);
 
-            if (packageName.equals("psc")) {
+            if (packageName.equals("psc")) { // Write psc file syntax if packageName is == to "psc", as mentioned in line 14
                 BasicSyntax = String.format("// \nAlgoritmo %s\n\t\nFinAlgoritmo",fileNameForClass);
-            } else {
+            } else { // Later on when scalating code to make C or SQL files, make this into something like if fileExtension.equals(".java") && foo foo.
                 BasicSyntax = String.format("package %s;\n\npublic class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",packageName,fileNameForClass);
             }
 
