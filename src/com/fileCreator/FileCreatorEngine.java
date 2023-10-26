@@ -16,7 +16,7 @@ abstract class FileCreatorEngine {
         }
         
         this.filePath = filePath;
-        this.fileAmount = fileAmount;
+        this.fileAmount = Math.abs(fileAmount);
         filesCounter = 0; // This is to keep track of the number of files created and 
     }
     

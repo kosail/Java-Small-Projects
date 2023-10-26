@@ -10,17 +10,16 @@ class FileCreator extends FileCreatorEngine {
 
     public FileCreator(String fileName, String fileExtension, String filePath, int fileAmount) {
         super(fileName, fileExtension, filePath, fileAmount);
+
+        if (fileExtension.equals(".psc")) {
+            this.packageName = "psc";
+        }
     }
 
     // Constructor for java files
     public FileCreator(String fileName, String fileExtension, String filePath, int fileAmount, String packageName) {
         super(fileName, fileExtension, filePath, fileAmount);
-        
-        if (fileExtension.equals(".psc")) {
-            this.packageName = "psc";
-        } else {
-            this.packageName = packageName;
-        }
+        this.packageName = packageName;
     }
 
     @Override
@@ -49,14 +48,14 @@ class FileCreator extends FileCreatorEngine {
 
     private static void fileFiller(String completeFilePath, String fileNameForClass, String packageName) {
         try {
-            String BasicSyntax = null;
+            String BasicSyntax = "";
             FileWriter fileSyntaxWritter = new FileWriter(completeFilePath);
             BufferedWriter bufferForWritter = new BufferedWriter(fileSyntaxWritter);
 
-            if (packageName.equals(".java")) {
-                BasicSyntax = String.format("package %s;\n\npublic class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",packageName,fileNameForClass);
-            } else if (packageName.equals("psc")) {
+            if (packageName.equals("psc")) {
                 BasicSyntax = String.format("// \nAlgoritmo %s\n\t\nFinAlgoritmo",fileNameForClass);
+            } else {
+                BasicSyntax = String.format("package %s;\n\npublic class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",packageName,fileNameForClass);
             }
 
             bufferForWritter.write(BasicSyntax);
