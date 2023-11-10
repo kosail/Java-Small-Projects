@@ -1,5 +1,5 @@
 .idea/
 bin/
-src/*
-!src/com.fileCreator/
+src/com/*
+!src/com/fileCreator/
 *.iml
