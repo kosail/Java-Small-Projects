@@ -1,8 +1,8 @@
 package com.fileCreator;
 
 abstract class FileCreatorEngine {
-    protected String fileName = null, fileExtension=null, filePath=null;
-    protected int fileAmount=0, filesCounter = 0;
+    protected String fileName, fileExtension, filePath;
+    protected int fileAmount, filesCounter;
     
     public FileCreatorEngine(String fileName, String fileExtension, String filePath, int fileAmount) {
         this.fileName = fileName;

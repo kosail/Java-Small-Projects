@@ -1,3 +1,5 @@
-/bin/
-*/*/*/*.class
-terminalClock/
+.idea/
+bin/
+src/*
+!src/com.fileCreator/
+*.iml

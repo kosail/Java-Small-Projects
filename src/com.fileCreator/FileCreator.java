@@ -2,8 +2,8 @@ package com.fileCreator;
 
 import java.io.File; // This is to create and interact with files
 import java.io.IOException; // This is for exceptions management
-import java.io.FileWriter; // This works pair to pair with BufferedWriter. This one is for writting in files
-import java.io.BufferedWriter; // This one is for optimization on writing to files, as FileWriter writes one char per operation, while on the opposite BufferedWriter takes everything into a buffer first, which reduces the syscalls to disk and improves a lot the tasks.
+import java.io.FileWriter; // This works pair to pair with BufferedWriter. This one is for writing in files
+import java.io.BufferedWriter; // This one is for optimization on writing to files, as FileWriter writes one char per operation, while on the opposite BufferedWriter takes everything into a buffer first, which reduces the sys-calls to disk and improves a lot the tasks.
 
 class FileCreator extends FileCreatorEngine {
     protected String packageName = null;
@@ -26,7 +26,7 @@ class FileCreator extends FileCreatorEngine {
     @Override
     public void createNewFile() {
         try {
-            for (int i=1;i<=fileAmount;i++) { // for struture to repeat the code for files creation as many times as the user specified 
+            for (int i=1;i<=fileAmount;i++) { // for structure to repeat the code for files creation as many times as the user specified
                 String completeFilePath = String.format("%s/%s%d%s",filePath,fileName, i, fileExtension);
                 File batchFileCreator = new File(completeFilePath);
 
@@ -43,15 +43,15 @@ class FileCreator extends FileCreatorEngine {
                 }
             System.out.printf("%d %s files created.\n",filesCounter, fileExtension);
         } catch (IOException e) {
-            System.out.println("An exception has ocurred. Details:\n" + e);
+            System.out.println("An exception has occurred. Details:\n" + e);
         }
     }
 
     private static void fileFiller(String completeFilePath, String fileNameForClass, String fileExtension, String packageName) {
         try {
-            String BasicSyntax = "";
-            FileWriter fileSyntaxWritter = new FileWriter(completeFilePath);
-            BufferedWriter bufferForWritter = new BufferedWriter(fileSyntaxWritter);
+            String BasicSyntax;
+            FileWriter fileSyntaxWriter = new FileWriter(completeFilePath);
+            BufferedWriter bufferForWriter = new BufferedWriter(fileSyntaxWriter);
 
             // Write psc file syntax if packageName is == to "psc", as mentioned in line 14
             if (packageName.equals("psc")) { 
@@ -59,15 +59,15 @@ class FileCreator extends FileCreatorEngine {
             // If it's a java file but there was no package name provided
             } else if (fileExtension.equals(".java") && packageName==null) {
                 BasicSyntax = String.format("public class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",fileNameForClass);
-            // Later on when scalating code to make C or SQL files, make this "else" into an smarter structure. As for now, it fulfills.
-            } else { 
+            // Later on when escalating code to make C or SQL files, make this "else" into a smarter structure. As for now, it fulfills.
+            } else {
                 BasicSyntax = String.format("package %s;\n\npublic class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",packageName,fileNameForClass);
             }
 
-            bufferForWritter.write(BasicSyntax);
-            bufferForWritter.close();
+            bufferForWriter.write(BasicSyntax);
+            bufferForWriter.close();
         } catch (IOException e) {
-            System.out.println("An exception has ocurred. Details:\n" + e);
+            System.out.println("An exception has occurred. Details:\n" + e);
         }
     }
 }
