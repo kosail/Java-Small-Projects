@@ -2,4 +2,5 @@
 bin/
 src/com/*
 !src/com/fileCreator/
+!src/com/materialGUI/
 *.iml
