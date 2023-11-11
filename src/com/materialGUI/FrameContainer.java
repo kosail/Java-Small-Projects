@@ -26,14 +26,26 @@ class FrameContainer extends JFrame {
         this.setVisible(true);
     }
 
-    // This method can be called from other places inside the package and is used for changing the background color of the basePanel.
-    void setBackground(int red, int green, int blue) {
-        basePanel.changeBackgroundColor(red, green, blue);
+    // This method is used for changing the background color of the basePanel.
+    void setBackgroundColor(int red, int green, int blue) {
+        // Using Math methods to avoid values under 0 or greater than 255, which can throw an Exception if not handled. No RGB color can be below 0 nor higher than 255.
+        red = Math.max(0, Math.min(255, red));
+        green = Math.max(0, Math.min(255, green));
+        blue = Math.max(0, Math.min(255, blue));
+
+        basePanel.changeBackgroundColor(new Color(red, green, blue)); // Calls changeBackgroundColor method and handles a new Color Object type using the three RBG values.
+    }
+
+    void setBackgroundColor(String hexColor) {
+        if (hexColor.startsWith("#")) { // If there is a # at the beginning, then remove it using substring and continue to parse the hex number to an int one.
+            hexColor = hexColor.substring(1); //Replace the string by the same content but beginning in the position 1.
+        }
+        basePanel.changeBackgroundColor(new Color(Integer.parseInt(hexColor, 16))); // Parses to int base 10 the hexColor String using base 16 or radix 16. Then, gives that int to Color, which creates a new Color Object type, and then it is handled to the method changeBackgroundColor.
     }
 
     // This is the same as the above, but instead of a color, sets an image as the background.
-    void setBackground(String imagePath) {
-        basePanel.changeBackgroundImage(imagePath);
+    void setBackgroundImage(String imagePath) {
+            basePanel.changeBackgroundImage(imagePath);
     }
 
     // Siple method to set or change the Icon of the App. It's like the known "favicon", but in png, jpg or gif format.
@@ -44,27 +56,16 @@ class FrameContainer extends JFrame {
 }
 
 class BasePanel extends JPanel {
-    private Color backgroundColor = SystemColor.window; // If no color is handled, the Panel will start with the OS standard color.
     private Image backgroundImage; // Instancing the backgroundImage Image Object here because we need to use it in two methods, which are the changeBackground one, and the paintComponent one. If we don't do this, the paintComponent one will not get any image to draw, as the backGroundImage object will be a local variable of changeBackgroundImage method.
 
     public BasePanel(Dimension frameSize) { // Constructor
-        setPanelBGColor(backgroundColor); // Starts the Panel using the SystemColor.window
+        this.setBackground(SystemColor.window); // Starts the Panel using the SystemColor.window
         this.setPreferredSize(frameSize); // Sets the Panel size to the same as the Frame, and keep it as that big. Interestingly here, the method JPanel.setPreferredSize receives Dimension type Objects.
     }
 
-    // Change the default color of the Panel (which is the SystemColor) to the one handled in RBG.
-    void changeBackgroundColor(int red, int green, int blue) {
-        // Using Math methods to avoid values under 0 or greater than 255, which can throw an Exception if not handled. No RGB color can be below 0 nor higher than 255.
-        red = Math.max(0, Math.min(255, red));
-        green = Math.max(0, Math.min(255, green));
-        blue = Math.max(0, Math.min(255, blue));
-
-        setPanelBGColor(new Color(red, green, blue));
-    }
-
-    // Simple use JPanel.setBackground to change the background color. This method is called by the constructor to paint the initial color, but also by changeBackgroundColor to make changes at any moment.
-    private void setPanelBGColor(Color backgroundColor) {
-        this.setBackground(backgroundColor);
+    // Change the default color of the Panel (which is the SystemColor) to the one handled in a Color Object.
+    void changeBackgroundColor(Color newBGColor) {
+        this.setBackground(newBGColor);
     }
 
     void changeBackgroundImage(String imagePath) {

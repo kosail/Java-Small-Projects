@@ -9,7 +9,7 @@ public class MaterialGUI {
 //        frameLocator.setWindowSize(200,200);
         
         FrameContainer mainFrame = new FrameContainer("Test", frameLocator); // New Frame and handling over the Frame name and the frameLocator Object, which will be helpful to get the screen size, Frame size and other stuff directly from the FrameContainer class.
-        
+         mainFrame.setBackgroundColor("282c34");
         // mainFrame.setIcon(osToolkit, "0.jpg");
         // mainFrame.setBackground("0.png");
     }
