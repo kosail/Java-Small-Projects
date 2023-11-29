@@ -28,9 +28,9 @@ class FileCreator extends FileCreatorEngine {
                 if (! batchFileCreator.createNewFile()) { // If file creation fails
                     System.out.printf("The file %s%d%s already exists, thus I will not overwrite it. Skipping...\n",fileName,i,fileExtension);
                 } else { // If file creation success
+                    filesCounter += 1; // To keep tracking of every file created
                     String fileNameForClass = String.format("%s%d", fileName,i);
                     fileFiller(completeFilePath, fileNameForClass, fileExtension, packageName);
-                    filesCounter += 1; // To keep tracking of every file created
                     }
 
                 }
