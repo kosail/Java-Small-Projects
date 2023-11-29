@@ -10,11 +10,6 @@ class FileCreator extends FileCreatorEngine {
 
     public FileCreator(String fileName, String fileExtension, String filePath, int fileAmount) {
         super(fileName, fileExtension, filePath, fileAmount);
-
-        // if no package name provided, create empty files. However, if it's a PSeInt type file, manually assign the package name to psc
-        if (fileExtension.equals(".psc")) {
-            this.packageName = "psc";
-        }
     }
 
     // Constructor for java files
@@ -33,11 +28,9 @@ class FileCreator extends FileCreatorEngine {
                 if (! batchFileCreator.createNewFile()) { // If file creation fails
                     System.out.printf("The file %s%d%s already exists, thus I will not overwrite it. Skipping...\n",fileName,i,fileExtension);
                 } else { // If file creation success
-                    if (packageName!=null) {
-                            String fileNameForClass = String.format("%s%d", fileName,i);
-                            fileFiller(completeFilePath, fileNameForClass, fileExtension, packageName);
-                            filesCounter += 1; // To keep tracking of only and every file created
-                        }
+                    String fileNameForClass = String.format("%s%d", fileName,i);
+                    fileFiller(completeFilePath, fileNameForClass, fileExtension, packageName);
+                    filesCounter += 1; // To keep tracking of every file created
                     }
 
                 }
@@ -54,14 +47,14 @@ class FileCreator extends FileCreatorEngine {
             BufferedWriter bufferForWriter = new BufferedWriter(fileSyntaxWriter);
 
             // Write psc file syntax if packageName is == to "psc", as mentioned in line 14
-            if (packageName.equals("psc")) { 
+            if (fileExtension.equals(".psc")) { 
                 BasicSyntax = String.format("// \nAlgoritmo %s\n\t\nFinAlgoritmo",fileNameForClass);
             // If it's a java file but there was no package name provided
-            } else if (fileExtension.equals(".java") && packageName==null) {
-                BasicSyntax = String.format("public class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",fileNameForClass);
-            // Later on when escalating code to make C or SQL files, make this "else" into a smarter structure. As for now, it fulfills.
-            } else {
+            } else if (fileExtension.equals(".java") && packageName != null) {
                 BasicSyntax = String.format("package %s;\n\npublic class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",packageName,fileNameForClass);
+                // Later on when escalating code to make C or SQL files, make this "else" into a smarter structure. As for now, it fulfills.
+            } else {
+                BasicSyntax = String.format("public class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",fileNameForClass);
             }
 
             bufferForWriter.write(BasicSyntax);

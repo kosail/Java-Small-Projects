@@ -8,8 +8,7 @@ abstract class FileCreatorEngine {
         this.fileName = fileName;
         
         // In case the file extension was written without a dot, adding it.
-        char dotInFileExtension = fileExtension.charAt(0);
-        if(dotInFileExtension!='.') {
+        if(fileExtension.charAt(0)!='.') {
             this.fileExtension = String.format(".%s",fileExtension);
         } else {
             this.fileExtension = fileExtension;
