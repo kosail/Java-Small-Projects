@@ -30,37 +30,41 @@ class FileCreator extends FileCreatorEngine {
                 } else { // If file creation success
                     filesCounter += 1; // To keep tracking of every file created
                     String fileNameForClass = String.format("%s%d", fileName,i);
-                    fileFiller(completeFilePath, fileNameForClass, fileExtension, packageName);
+
+                    try {
+                        fileFiller(completeFilePath, fileNameForClass, fileExtension, packageName);
+                    } catch (IOException e) {
+                        System.out.println("I/O Exception has occurred. Details:\n" + e);
                     }
 
                 }
+            }
+
             System.out.printf("%d %s files created.\n",filesCounter, fileExtension);
+
         } catch (IOException e) {
-            System.out.println("An exception has occurred. Details:\n" + e);
+            System.out.println("I/O Exception has occurred. Details:\n" + e);
         }
     }
 
-    private static void fileFiller(String completeFilePath, String fileNameForClass, String fileExtension, String packageName) {
-        try {
-            String BasicSyntax;
-            FileWriter fileSyntaxWriter = new FileWriter(completeFilePath);
-            BufferedWriter bufferForWriter = new BufferedWriter(fileSyntaxWriter);
+    private static void fileFiller(String completeFilePath, String fileNameForClass, String fileExtension, String packageName) throws IOException {
+        String BasicSyntax = "";
+        FileWriter fileSyntaxWriter = new FileWriter(completeFilePath);
+        BufferedWriter bufferForWriter = new BufferedWriter(fileSyntaxWriter);
 
-            // Write psc file syntax if packageName is == to "psc", as mentioned in line 14
-            if (fileExtension.equals(".psc")) { 
-                BasicSyntax = String.format("// \nAlgoritmo %s\n\t\nFinAlgoritmo",fileNameForClass);
-            // If it's a java file but there was no package name provided
-            } else if (fileExtension.equals(".java") && packageName != null) {
+        // Write psc file syntax if packageName is == to "psc", as mentioned in line 14
+        if (fileExtension.equals(".psc")) { 
+            BasicSyntax = String.format("// \nAlgoritmo %s\n\t\nFinAlgoritmo",fileNameForClass);
+        // If it's a java file but there was no package name provided
+        } else if (fileExtension.equals(".java")) {
+            if (packageName != null) {
                 BasicSyntax = String.format("package %s;\n\npublic class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",packageName,fileNameForClass);
-                // Later on when escalating code to make C or SQL files, make this "else" into a smarter structure. As for now, it fulfills.
             } else {
                 BasicSyntax = String.format("public class %s {\n\tpublic static void main(String[] args) {\n\t\n\t}\n}",fileNameForClass);
             }
-
-            bufferForWriter.write(BasicSyntax);
-            bufferForWriter.close();
-        } catch (IOException e) {
-            System.out.println("An exception has occurred. Details:\n" + e);
         }
+
+        bufferForWriter.write(BasicSyntax);
+        bufferForWriter.close();
     }
 }
