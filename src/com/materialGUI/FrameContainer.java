@@ -7,7 +7,7 @@ import java.awt.Toolkit;
 import java.awt.Image;
 import java.awt.Color;
 
-class FrameContainer extends JFrame {
+public class FrameContainer extends JFrame {
     private final PanelManager basePanel; // Encapsulation of basePanel Object and also for being able to call the Object methods in the setBackground method.
 
     public FrameContainer (String windowName, FrameLocator frameLocation) { // First parameter is self-explanatory, while the second one is used for setting the frame location, plus creating a panel of the same size as the frame.
@@ -18,7 +18,6 @@ class FrameContainer extends JFrame {
         this.getContentPane().add(basePanel); // Adding the created basePanel Object we just created (JPanel Object Type) to the Frame.
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
     }
 
     // This method is used for changing the background color of the basePanel.

@@ -10,5 +10,7 @@ public class MaterialGUI {
         mainFrame.setBackgroundColor("04ded0");
         // mainFrame.setIcon(osToolkit, "0.jpg");
         // mainFrame.setBackground("0.png");
+        mainFrame.setUndecorated(true);
+        mainFrame.setVisible(true);
     }
 }
