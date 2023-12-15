@@ -14,6 +14,10 @@ Este repositorio está destinado a proporcionar un entorno educativo donde puedo
   - Descripción: Un gestor de ventanas que siga la misma estética de Material Design usando Swing, y que sea fácilmente implementable en futuros proyectos
   - Estado: En Proceso
 
+### **Zoo Game Emulator**
+  - Descripción: Un juego sencillo, visita el zoológico de la Ciudad Sierra. Un proyecto enfocado para practicar tipos enumerados y POO a todo gas.
+  - Estado: En Proceso
+
 ## 🛠️ ¿Cómo contribuir?
 ¡Me encantaría recibir tus contribuciones! Siéntete libre de hacer un branch del repositorio, trabajar en tus propias ideas o mejorar los proyectos existentes. Recuerda seguir las mejores prácticas de desarrollo.
 
