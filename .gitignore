@@ -5,4 +5,5 @@ src/com/*
 !src/com/fileCreator/
 !src/com/materialGUI/
 !src/com/terminalClock
+!src/com/zooGameEmulator
 *.iml
