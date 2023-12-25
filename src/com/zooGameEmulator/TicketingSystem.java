@@ -51,7 +51,7 @@ public class TicketingSystem {
                             break;
                         default:
                             ConsoleCustomPrint.clearScreen();
-                            ConsoleCustomPrint.printWithColor(foregroundColors.RED, "Ingresaste una opción no valida.", true);
+                            ConsoleCustomPrint.printWithColor(foregroundColors.RED, "Ingresaste una opción no valida.\n", true);
                             break;
                     }
                 } while (!validChoose);

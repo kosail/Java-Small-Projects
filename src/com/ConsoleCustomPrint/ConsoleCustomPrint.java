@@ -39,7 +39,7 @@ public class ConsoleCustomPrint {
         printWithColor(foregroundColors.RED, String.format("%s\n", e.getClass()).substring(6), true);
 
         System.out.print("Cause of exception: ");
-        printWithColor(foregroundColors.YELLOW, String.format("%s\n\n", e.getCause()), true);
+        printWithColor(foregroundColors.YELLOW, String.format("%s\n\n", e.getMessage()), true);
         
         printWithColor(foregroundColors.BLUE_DARK, "Stack Trace:\n", true);
         e.printStackTrace();

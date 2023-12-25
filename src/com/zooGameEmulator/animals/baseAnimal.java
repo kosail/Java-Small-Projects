@@ -26,28 +26,40 @@ public abstract class baseAnimal {
         System.out.println(details);
     }
 
-    abstract void makeSounds();
+    protected abstract String makeSounds();
+    protected abstract String makeAction();
 
-    void randomAction() {
+    String randomAction() {
         final int randomAction = (int) (Math.random() * 10);
-        randomActionGenerator(randomAction);
+        return randomActionGenerator(randomAction);
     }
-    // ! Falta definir las acciones que van a tener los animales, y que el método RandomActionGenerator devuelva un String. Ya luego voy a decidir si el método randomAction va a imprimir las acciones por sí sola, o si va a hacer un return de String y que cada animal lo maneje como quiera.
     
     private String randomActionGenerator(int randomAction) {
         switch (randomAction) {
+            case 0:
+                return "...";
             case 1:
+                return "hace una voltereta y le guiña un ojo a los visitantes.";
             case 2:
+                return "comienza a bailar breakdance inesperadamente, impresionando a todos alrededor.";
             case 3:
+                return "finge ser un superhéroe, secuestra a un niño de entre la gente y lo salva él mismo.";
             case 4:
+                return "comienza a hacer standup... está haciendo chiste sobre el personal de hoteles.";
             case 5:
+                return "agarra un micrófono y comienza a cantar una sorprendentemente buena interpretación de una canción popular.";
             case 6:
+                return "de repente comienza a jugar ajedrez, realizando movimientos estratégicos con un intelecto impresionante.";
             case 7:
+                return "inicia una rutina de baile sincronizado con otro animales presos en el zoológico.";
             case 8:
+                return "saca una pequeña laptop y comienza a programar un emulador de juegos de zoológico en Java... pero parece frustrado con los NullPointerExceptions.";
             case 9:
+                return "está intentando romper los barrotes y escapar, y el personal del zoológico le está arrojando piedras para calmarlo.";
             case 10:
+                return "comienza a dirigir una orquesta, mostrando su talento musical oculto.";
             default:
+                return "...";
         }
-        return null;
     }
 }

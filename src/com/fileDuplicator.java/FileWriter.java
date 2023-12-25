@@ -31,9 +31,10 @@ public class FileWriter {
             if (fileAlreadyExists.exists()) {
                 ConsoleCustomPrint.printWithColor(foregroundColors.YELLOW, String.format("%s already exists, skipping...\n", newFilenames), false);
             } else {
-                FileOutputStream fos = new FileOutputStream(newFilenames);
-                fos.write(fileContent);
-                counter++;
+                try (FileOutputStream fos = new FileOutputStream(newFilenames)) {
+                    fos.write(fileContent);
+                    counter++;
+                }
             }
         }
     }

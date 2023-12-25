@@ -5,7 +5,7 @@ public class StartGame {
         TicketingSystem welcomeToGame = new TicketingSystem();
         welcomeToGame.startNewGame();
 
-        Zoo zoo = new Zoo();
-        // zoo.enterZoo(welcomeToGame.getOwnedTicket());
+        Zoo zoo = new Zoo(welcomeToGame.getOwnedTicket());
+        zoo.enterZoo();
     }
 }
