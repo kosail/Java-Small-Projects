@@ -1,8 +1,11 @@
 package com.zooGameEmulator.animals;
 
 public class Monkey extends baseAnimal {
-    public Monkey(String name, String scientificName, String details, int age) {
-        super(name, scientificName, details, age);
+    private static final String SCIENTIFICNAME = "Cercopithecidae";
+    private static final String DETAILS = "Los cercopitécidos o monos del viejo mundo son una familia de primates de la superfamilia Cercopithecoidea incluida dentro del clado Catarrhini. Dentro de esta gran familia se clasifican 21 géneros y 139 especies vivientes e incluyen varios primates como los babuinos, cercopitecos, macacos, mandriles y colobos.";
+
+    public Monkey(String name, int age) {
+        super(name, SCIENTIFICNAME, DETAILS, age);
     }
 
     @Override

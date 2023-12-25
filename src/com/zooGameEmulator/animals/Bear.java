@@ -1,8 +1,11 @@
 package com.zooGameEmulator.animals;
 
 public class Bear extends baseAnimal {
-    public Bear(String name, String scientificName, String details, int age) {
-        super(name, scientificName, details, age);
+    private static final String SCIENTIFICNAME = "Ursidae";
+    private static final String DETAILS = "Son animales de gran tamaño, generalmente omnívoros, ya que, a pesar de su temible dentadura, comen frutos, raíces e insectos, además de carne. Con sus pesados cuerpos y sus poderosas mandíbulas, los osos se encuentran entre los mayores carnívoros que viven en la Tierra.";
+
+    public Bear(String name, int age) {
+        super(name, SCIENTIFICNAME, DETAILS, age);
     }
 
     @Override

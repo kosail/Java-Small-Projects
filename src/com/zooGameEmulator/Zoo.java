@@ -1,7 +1,21 @@
 package com.zooGameEmulator;
 
+import com.ConsoleCustomPrint.ConsoleCustomPrint;
+import com.ConsoleCustomPrint.foregroundColors;
+import com.zooGameEmulator.animals.*;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Zoo {
     private final boolean penguin;
+
+    private Bear bearTom;
+    private Giraffe GiraffeNana;
+    private Hippo hippoHellen;
+    private Monkey monkeyPlathon;
+    private Panther PantherPersia;
 
     public Zoo(TicketType ownedTicket) {
         if (ownedTicket == TicketType.ADULT_PENGUIN) {
@@ -9,9 +23,64 @@ public class Zoo {
         } else {
             penguin = false;
         }
+
+        bearTom = new Bear("Tom", 15);
+        GiraffeNana = new Giraffe("Nana", 40);
+        hippoHellen = new Hippo("Hellen", 40);
+        monkeyPlathon = new Monkey("Plathon", 40);
+        PantherPersia = new Panther("Persia", 40);
     }
 
     public void enterZoo() {
-        // this will be build soon. As for now, keep it empty.
+        BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
+        String userChoice = "";
+        String[] animals = {"Oso", "Jirafa", "Hipopotamo", "Mono", "Pantera", "Pingüino"};
+        
+        System.out.println("Entras al zoológico y todo parece reluciente. Hay muchas personas pasando por todas partes, vendedores de globos y de comida. Los niños caminan felices, y los padres llevan a sus hijos sobre los hombros.");
+        
+        do {
+            ConsoleCustomPrint.printWithColor(foregroundColors.WHITE, "¿Qué animal te gustaría ir a ver? ", true);
+            System.out.println("(Escribe el nombre del animal para ir a verlo, o escribe \"salir\" si quieres irte del Zoo)");
+            
+            for (String animal:animals) {
+                System.out.printf("* %s\n", animal);
+            }
+            
+            ConsoleCustomPrint.printWithColor(foregroundColors.PURPLE, ">> ", true);
+            
+            /*
+            * Notes for myself:
+            ? This will be build in the future, as for now just dont forget that:
+            ! there is a bug with the BufferedReader, which is throwing an exception of Stream Closed for some weird reason. It is also throwing the exception infinitely due the do-while structure
+             */
+
+            try {
+                userChoice = bReader.readLine();
+                userChoice = userChoice.toLowerCase();
+
+                switch (userChoice) {
+                    case "oso":
+                        break;
+                    case "jirafa":
+                        break;
+                    case "hipopotamo":
+                        break;
+                    case "mono":
+                        break;
+                    case "pantera":
+                        break;
+                    case "pingüinos":
+                        break;
+                    case "salir":
+                        break;
+                    default:
+                        break;
+                }
+
+            } catch (IOException e) {
+                ConsoleCustomPrint.exceptionSummary(e);
+            }
+
+        } while (! userChoice.equalsIgnoreCase("salir"));
     }
 }

@@ -59,23 +59,23 @@ public class TicketingSystem {
                 ConsoleCustomPrint.printWithColor(foregroundColors.GREEN, "¡Compra exitosa! Disfruta de tu visita al Zoológico de Ciudad Sierra.\n", true);
                 ConsoleCustomPrint.clearScreen(1800);           
             } else {
-                System.out.println("Esperamos vuelvas pronto.");
                 exitGame();
             }
-
+            
         } catch (IOException e) {
             ConsoleCustomPrint.exceptionSummary(e);
-
+            
         } catch (NumberFormatException e) {
             ConsoleCustomPrint.exceptionSummary(e);
         }
     }
-
+    
     public TicketType getOwnedTicket() {
         return newTicket;
     }
-
+    
     private void exitGame() {
+        System.out.println("¡Esperamos vuelvas pronto!");
         System.exit(0);
     }
 }

@@ -13,13 +13,13 @@ public abstract class baseAnimal {
         this.details = details;
     }
 
-    void readInformationCard() {
-        ConsoleCustomPrint.printWithColor(backgroundColors.YELLOW, name.toUpperCase(), true);
+    public void readInformationCard() {
+        ConsoleCustomPrint.printWithColor(backgroundColors.YELLOW, name.toUpperCase() + "\n", true);
         
-        ConsoleCustomPrint.printWithColor(foregroundColors.BLUE_DARK, "Nombre científico: ", false);
+        ConsoleCustomPrint.printWithColor(foregroundColors.RED, "Nombre científico: ", false);
         System.out.println(scientificName);
         
-        ConsoleCustomPrint.printWithColor(foregroundColors.BLUE_DARK, "Edad de este ejemplar: ", false);
+        ConsoleCustomPrint.printWithColor(foregroundColors.GREEN, "Edad de este ejemplar: ", false);
         System.out.println(age);
         
         ConsoleCustomPrint.printWithColor(foregroundColors.BLUE_LIGHT, "Información sobre este animal:", false);
@@ -29,7 +29,7 @@ public abstract class baseAnimal {
     protected abstract String makeSounds();
     protected abstract String makeAction();
 
-    String randomAction() {
+    public String randomAction() {
         final int randomAction = (int) (Math.random() * 10);
         return randomActionGenerator(randomAction);
     }
@@ -51,9 +51,9 @@ public abstract class baseAnimal {
             case 6:
                 return "de repente comienza a jugar ajedrez, realizando movimientos estratégicos con un intelecto impresionante.";
             case 7:
-                return "inicia una rutina de baile sincronizado con otro animales presos en el zoológico.";
+                return "inicia una rutina de baile sincronizado con otros animales presos en el zoológico.";
             case 8:
-                return "saca una pequeña laptop y comienza a programar un emulador de juegos de zoológico en Java... pero parece frustrado con los NullPointerExceptions.";
+                return "saca una pequeña laptop y comienza a programar un emulador de juegos de zoológico en Java... pero parece tener frustración con los NullPointerExceptions.";
             case 9:
                 return "está intentando romper los barrotes y escapar, y el personal del zoológico le está arrojando piedras para calmarlo.";
             case 10:
