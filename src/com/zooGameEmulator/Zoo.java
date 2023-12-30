@@ -12,27 +12,23 @@ public class Zoo {
     private final boolean penguin;
 
     private Bear bearTom;
-    private Giraffe GiraffeNana;
+    private Giraffe giraffeNana;
     private Hippo hippoHellen;
     private Monkey monkeyPlathon;
-    private Panther PantherPersia;
+    private Panther pantherPersia;
 
     public Zoo(TicketType ownedTicket) {
-        if (ownedTicket == TicketType.ADULT_PENGUIN) {
-            penguin = true;
-        } else {
-            penguin = false;
-        }
+        penguin = ownedTicket == TicketType.ADULT_PENGUIN;
 
         bearTom = new Bear("Tom", 15);
-        GiraffeNana = new Giraffe("Nana", 40);
+        giraffeNana = new Giraffe("Nana", 40);
         hippoHellen = new Hippo("Hellen", 40);
         monkeyPlathon = new Monkey("Plathon", 40);
-        PantherPersia = new Panther("Persia", 40);
+        pantherPersia = new Panther("Persia", 40);
     }
 
     public void enterZoo() {
-        BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String userChoice = "";
         String[] animals = {"Oso", "Jirafa", "Hipopotamo", "Mono", "Pantera", "Pingüino"};
         
@@ -55,7 +51,7 @@ public class Zoo {
              */
 
             try {
-                userChoice = bReader.readLine();
+                userChoice = br.readLine();
                 userChoice = userChoice.toLowerCase();
 
                 switch (userChoice) {

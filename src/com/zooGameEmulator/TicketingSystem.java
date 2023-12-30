@@ -57,7 +57,7 @@ public class TicketingSystem {
                 } while (!validChoose);
                 
                 ConsoleCustomPrint.printWithColor(foregroundColors.GREEN, "¡Compra exitosa! Disfruta de tu visita al Zoológico de Ciudad Sierra.\n", true);
-                ConsoleCustomPrint.clearScreen(1800);           
+                ConsoleCustomPrint.clearScreen(1800);
             } else {
                 exitGame();
             }
