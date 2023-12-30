@@ -46,8 +46,7 @@ public class Zoo {
             
             /*
             * Notes for myself:
-            ? This will be build in the future, as for now just dont forget that:
-            ! there is a bug with the BufferedReader, which is throwing an exception of Stream Closed for some weird reason. It is also throwing the exception infinitely due the do-while structure
+            ! there is a bug with the BufferedReader, which is throwing an IOException: Stream Closed for some weird reason. It is also throwing the exception infinitely due the do-while structure. I have tried changing the structure in TicketingSystem.java and StartGame, but it is still throwing Stream Closed. I don't get it at all.
              */
 
             try {

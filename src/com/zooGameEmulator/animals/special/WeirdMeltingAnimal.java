@@ -2,6 +2,6 @@ package com.zooGameEmulator.animals.special;
 
 import com.zooGameEmulator.animals.baseAnimal;
 
-public class MeltingWeirdAnimal {
+public class WeirdMeltingAnimal {
     // code this later on
 }
