@@ -2,7 +2,6 @@ package com.zooGameEmulator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import com.ConsoleCustomPrint.ConsoleCustomPrint;
 import com.ConsoleCustomPrint.backgroundColors;
@@ -10,31 +9,44 @@ import com.ConsoleCustomPrint.foregroundColors;
 
 public class TicketingSystem {
     private TicketType newTicket = null;
-
+    private final BufferedReader bReader;
+    
+    public TicketingSystem(BufferedReader bReader) {
+        this.bReader = bReader;
+    }
+    
     public void startNewGame() {
-        ConsoleCustomPrint.printWithColor(backgroundColors.BLUE_LIGHT, "¡Bienvenido al zoológico virtual de Ciudad Sierra!\n", true);
-        ConsoleCustomPrint.printWithColor(foregroundColors.NORMAL, "+------------------------------------------------+\n", true);
+        ConsoleCustomPrint.printWithColor(backgroundColors.BLUE_LIGHT,
+                "¡Bienvenido al zoológico virtual de Ciudad Sierra!\n", true);
+        ConsoleCustomPrint.printWithColor(foregroundColors.NORMAL, "+------------------------------------------------+\n",
+                true);
+        
         System.out.println("Estas son nuestras tarifas:");
-        System.out.printf("\t* Adulto: $%d\n\t* Adulto + Acceso al santuario de Pingüinos: $%d\n\t* Niños menores de 12 años: $%d\n\n", TicketType.ADULT_BASIC.getTicketPrice(), TicketType.ADULT_PENGUIN.getTicketPrice(), TicketType.KID.getTicketPrice());
+        System.out.printf(
+                "\t* Adulto: $%d\n\t* Adulto + Acceso al santuario de Pingüinos: $%d\n\t* Niños menores de 12 años: $%d\n\n",
+                TicketType.ADULT_BASIC.getTicketPrice(), TicketType.ADULT_PENGUIN.getTicketPrice(),
+                TicketType.KID.getTicketPrice()
+        );
         
+        boolean validChoose = false;
         
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            ConsoleCustomPrint.printWithColor(foregroundColors.YELLOW, "¿Deseas comprar un ticket?\n", true);
-            System.out.println("\t1) Sí\n\t2) No");
-            ConsoleCustomPrint.printWithColor(foregroundColors.WHITE, ">> ", true);
-
-            int buyTicket = Integer.parseInt(br.readLine());
-            
-            if (buyTicket == 1) {
-                boolean validChoose = false;
-                int desiredTicket = 0;
+        do {
+            try {
+                ConsoleCustomPrint.printWithColor(foregroundColors.YELLOW, "¿Deseas comprar un ticket?\n", true);
+                System.out.println("\t1) Sí\n\t2) No");
+                ConsoleCustomPrint.printWithColor(foregroundColors.WHITE, ">> ", true);
+                int buyTicket = Integer.parseInt(bReader.readLine());
                 
-                do {
-                    ConsoleCustomPrint.printWithColor(foregroundColors.BLUE_LIGHT, "¿Qué tipo de ticket quieres comprar?\n", true);             
-                    System.out.println("\t 1) Adulto\n\t 2) Adulto + Acceso al santuario de Pingüinos\n\t 3) Niños menor de 12 años");
+                if (buyTicket != 1) {
+                    exitGame();
+                } else {
+                    int desiredTicket;
+                    
+                    ConsoleCustomPrint.printWithColor(foregroundColors.BLUE_LIGHT, "¿Qué tipo de ticket quieres comprar?\n",  true);
+                    System.out.println("\t 1) Adulto\n\t 2) Adulto + Acceso al santuario de Pingüinos\n\t 3) Niños menores de 12 años");
                     ConsoleCustomPrint.printWithColor(foregroundColors.WHITE, ">> ", true);
-
-                    desiredTicket = Integer.parseInt(br.readLine());
+                    
+                    desiredTicket = Integer.parseInt(bReader.readLine());
                     
                     switch (desiredTicket) {
                         case 1:
@@ -52,25 +64,25 @@ public class TicketingSystem {
                         default:
                             ConsoleCustomPrint.clearScreen();
                             ConsoleCustomPrint.printWithColor(foregroundColors.RED, "Ingresaste una opción no valida.\n", true);
-                            break;
                     }
-                } while (!validChoose);
+                    
+                    
+                    ConsoleCustomPrint.printWithColor(foregroundColors.GREEN,
+                            "¡Compra exitosa! Disfruta de tu visita al Zoológico de Ciudad Sierra.\n", true);
+                    ConsoleCustomPrint.clearScreen(1800);
+                    
+                }
                 
-                ConsoleCustomPrint.printWithColor(foregroundColors.GREEN, "¡Compra exitosa! Disfruta de tu visita al Zoológico de Ciudad Sierra.\n", true);
-                ConsoleCustomPrint.clearScreen(1800);
-            } else {
-                exitGame();
+            } catch (IOException e) {
+                ConsoleCustomPrint.exceptionSummary(e);
+            } catch (NumberFormatException e) {
+                ConsoleCustomPrint.clearScreen();
+                ConsoleCustomPrint.printWithColor(foregroundColors.RED, "Ingresaste una opción no valida.\n", true);
             }
-            
-        } catch (IOException e) {
-            ConsoleCustomPrint.exceptionSummary(e);
-            
-        } catch (NumberFormatException e) {
-            ConsoleCustomPrint.exceptionSummary(e);
-        }
+        } while (!validChoose);
     }
     
-    public TicketType getOwnedTicket() {
+    TicketType getOwnedTicket() {
         return newTicket;
     }
     

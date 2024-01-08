@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Zoo {
+    private BufferedReader bReader;
     private final boolean penguin;
 
     private Bear bearTom;
@@ -17,18 +18,18 @@ public class Zoo {
     private Monkey monkeyPlathon;
     private Panther pantherPersia;
 
-    public Zoo(TicketType ownedTicket) {
+    public Zoo(TicketType ownedTicket, BufferedReader bReader) {
+        this.bReader = bReader;
         penguin = ownedTicket == TicketType.ADULT_PENGUIN;
 
         bearTom = new Bear("Tom", 15);
-        giraffeNana = new Giraffe("Nana", 40);
-        hippoHellen = new Hippo("Hellen", 40);
-        monkeyPlathon = new Monkey("Plathon", 40);
+        giraffeNana = new Giraffe("Nana", 7);
+        hippoHellen = new Hippo("Hellen", 4);
+        monkeyPlathon = new Monkey("Plathon", 700);
         pantherPersia = new Panther("Persia", 40);
     }
 
     public void enterZoo() {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String userChoice = "";
         String[] animals = {"Oso", "Jirafa", "Hipopotamo", "Mono", "Pantera", "Pingüino"};
         
@@ -43,15 +44,9 @@ public class Zoo {
             }
             
             ConsoleCustomPrint.printWithColor(foregroundColors.PURPLE, ">> ", true);
-            
-            /*
-            * Notes for myself:
-            ! there is a bug with the BufferedReader, which is throwing an IOException: Stream Closed for some weird reason. It is also throwing the exception infinitely due the do-while structure. I have tried changing the structure in TicketingSystem.java and StartGame, but it is still throwing Stream Closed. I don't get it at all.
-             */
 
             try {
-                userChoice = br.readLine();
-                userChoice = userChoice.toLowerCase();
+                userChoice = bReader.readLine().toLowerCase();
 
                 switch (userChoice) {
                     case "oso":
