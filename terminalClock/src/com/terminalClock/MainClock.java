@@ -12,7 +12,7 @@ public class MainClock {
         UNIXCLIPrettifier unixP = new UNIXCLIPrettifier();
         
         mainClock.set12HoursClock();
-        unixP.setGayColors();
+        unixP.setMetalColors();
 
         while (true) {
             clearScreen();
