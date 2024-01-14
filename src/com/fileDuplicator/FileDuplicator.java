@@ -1,5 +1,7 @@
+package com.fileDuplicator.java;
+
 import java.io.IOException;
-import com.ConsoleCustomPrint.*;
+import com.consoleCustomPrint.*;
 
 /*
 ? Things to reimplement due possible optimizations:
@@ -9,8 +11,8 @@ import com.ConsoleCustomPrint.*;
 public class FileDuplicator {
     public static void main(String[] args) {
         if (args.length==0 || args.length>2) {
-            ConsoleCustomPrint.printWithColor(foregroundColors.RED, "\tThere are not enough or too much arguments.\n", false);
-            ConsoleCustomPrint.printWithColor(foregroundColors.WHITE, "Usage: java fileDuplicator filePath amountOfCopy\n", false);
+            ConsoleCustomPrint.printWithColor(ForegroundColors.RED, "\tThere are not enough or too much arguments.\n", false);
+            ConsoleCustomPrint.printWithColor(ForegroundColors.WHITE, "Usage: java fileDuplicator filePath amountOfCopy\n", false);
         } else {
 
             try {
@@ -20,7 +22,7 @@ public class FileDuplicator {
                 fw.startFileDuplication();
 
                 if (fw.getDuplicationStatus()!=0) {
-                    ConsoleCustomPrint.printWithColor(foregroundColors.GREEN, String.format("File duplicated %s times successfully!\n", fw.getDuplicationStatus()), true);
+                    ConsoleCustomPrint.printWithColor(ForegroundColors.GREEN, String.format("File duplicated %s times successfully!\n", fw.getDuplicationStatus()), true);
                 }
 
             } catch (IOException e) {

@@ -6,17 +6,41 @@
 Este repositorio está destinado a proporcionar un entorno educativo donde puedo trabajar en proyectos relacionados con Java, desde los fundamentos hasta conceptos más avanzados. La estructura del repositorio es bastante simple: todos los proyectos estarán en la carpeta com y serán paquetes, de modo que si lo necesitara, pueda importarlos fácilmente. La idea del diseño es no complicar demasiado las cosas, y centrarme en la creatividad programando.
 
 ## 🚀 Proyectos Activos
-### **File Creator**
+
+<details>
+<summary>Clic para abrir la lista</summary>
+
+### **[Console Custom Print](consoleCustomPrint/)**
+  - Descripción: Más que un "programa", es una librería para poder imprimir de manera sencilla cosas en la terminal usando colores, negrita, subrayados y demás. También tiene una función para imprimir excepciones de una manera más legible y colorida.
+  - Estado: ```diff + Terminado ```
+
+### **[File Creator](fileCreator/)**
   - Descripción: Un programa el cual crea archivos en base a la cantidad que el usuario indique, además del formato y el directorio. Si es un archivo de extensión PSeInt (.psc) o Java (.java), rellena automáticamente el archivo con la sintáxis básica del lenguaje (además, acepta recibir el package name como parametro).
-  - Estado: Terminado
+  - Estado: ```diff + Terminado ```
 
-### **Material GUI**
+### **[File Duplicator](fileDuplicator/)**
+  - Descripción: Simplemente duplica cualquier archivo que se le indique, la cantidad de veces que se le indique.
+  - Estado: ```diff + Terminado ```
+
+### **[Material GUI](materialGUI/)**
   - Descripción: Un gestor de ventanas que siga la misma estética de Material Design usando Swing, y que sea fácilmente implementable en futuros proyectos
-  - Estado: En Proceso
+  - Estado: ```diff - En Pausa ```
 
-### **Zoo Game Emulator**
+### **[Palindrome Checker](palindromeChecker/)**
+  - Descripción: Un programa de CLI muy sencillo para aprender a invertir Strings usando arrays o stacks.
+  - Estado: ```diff + Terminado ```
+
+### **[Terminal Clock](terminalClock/)**
+  - Descripción: Muestra un reloj digital en tiempo real en CLI junto con la hora horaria del sistema. En sistemas UNIX, implementa una clase (`UNIXCLIPrettifier`) que aprovecha los comandos `figlet`y `toilet` para imprimir el texto en grande y colorido.
+  - Estado: ```diff + Terminado ```
+
+### **[Zoo Game Emulator](zooGameEmulator/)**
   - Descripción: Un juego sencillo, visita el zoológico de la Ciudad Sierra. Un proyecto enfocado para practicar tipos enumerados y POO a todo gas.
-  - Estado: En Proceso
+  - Estado: ```diff ! En Proceso ```
+
+</details>
+
+
 
 ## 🛠️ ¿Cómo contribuir?
 ¡Me encantaría recibir tus contribuciones! Siéntete libre de hacer un branch del repositorio, trabajar en tus propias ideas o mejorar los proyectos existentes. Recuerda seguir las mejores prácticas de desarrollo.

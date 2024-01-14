@@ -1,6 +1,6 @@
-package com.ConsoleCustomPrint;
+package com.consoleCustomPrint;
 
-public enum foregroundColors {
+public enum ForegroundColors {
     RED("\033[31m"),
     GREEN("\033[32m"),
     YELLOW("\033[33m"),
@@ -12,7 +12,7 @@ public enum foregroundColors {
     
     private final String fgColor;
 
-    private foregroundColors(String fgColor) {
+    ForegroundColors(String fgColor) {
         this.fgColor = fgColor;
     }
 

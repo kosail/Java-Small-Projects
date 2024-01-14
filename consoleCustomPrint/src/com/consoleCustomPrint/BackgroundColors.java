@@ -1,6 +1,6 @@
-package com.ConsoleCustomPrint;
+package com.consoleCustomPrint;
 
-public enum backgroundColors {
+public enum BackgroundColors {
     RED("\033[41m"),
     GREEN("\033[42m"),
     YELLOW("\033[43m"),
@@ -12,7 +12,7 @@ public enum backgroundColors {
 
     private final String bgColor;
 
-    private backgroundColors(String bgColor) {
+    BackgroundColors(String bgColor) {
         this.bgColor = bgColor;
     }
 

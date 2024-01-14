@@ -1,10 +1,10 @@
-package com.ConsoleCustomPrint;
+package com.consoleCustomPrint;
 
 public class ConsoleCustomPrint {
-    private static String boldText = "\033[1m";
-    private static String cleanFormat = "\033[0m";
+    private static final String boldText = "\033[1m";
+    private static final String cleanFormat = "\033[0m";
     
-    public static void printWithColor(foregroundColors color, String text, boolean isBoldText) {
+    public static void printWithColor(ForegroundColors color, String text, boolean isBoldText) {
         if (isBoldText) {
             System.out.printf("%s%s%s%s", color.getCode(), boldText, text, cleanFormat);
         } else {
@@ -12,7 +12,7 @@ public class ConsoleCustomPrint {
         }
     }
 
-    public static void printWithColor(backgroundColors color, String text, boolean isBoldText) {
+    public static void printWithColor(BackgroundColors color, String text, boolean isBoldText) {
         if (isBoldText) {
             System.out.printf("%s%s%s%s", color.getCode(), boldText, text, cleanFormat);
         } else {
@@ -35,13 +35,13 @@ public class ConsoleCustomPrint {
     }
 
     public static void exceptionSummary(Exception e) {
-        System.out.print("An error has ocurred with an exception type of ");
-        printWithColor(foregroundColors.RED, String.format("%s\n", e.getClass()).substring(6), true);
+        System.out.print("An error has occurred with an exception type of ");
+        printWithColor(ForegroundColors.RED, String.format("%s\n", e.getClass()).substring(6), true);
 
         System.out.print("Cause of exception: ");
-        printWithColor(foregroundColors.YELLOW, String.format("%s\n\n", e.getMessage()), true);
+        printWithColor(ForegroundColors.YELLOW, String.format("%s\n\n", e.getMessage()), true);
         
-        printWithColor(foregroundColors.BLUE_DARK, "Stack Trace:\n", true);
+        printWithColor(ForegroundColors.BLUE_DARK, "Stack Trace:\n", true);
         e.printStackTrace();
     }
 }

@@ -1,9 +1,11 @@
+package com.fileDuplicator;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.ConsoleCustomPrint.ConsoleCustomPrint;
-import com.ConsoleCustomPrint.foregroundColors;
+import com.consoleCustomPrint.ConsoleCustomPrint;
+import com.consoleCustomPrint.ForegroundColors;
 
 public class FileWriter {
     private String fileName, fileExtension;
@@ -29,7 +31,7 @@ public class FileWriter {
             String newFilenames = String.format("%s-copy-%d%s", fileName, i, fileExtension);
             File fileAlreadyExists = new File(newFilenames);
             if (fileAlreadyExists.exists()) {
-                ConsoleCustomPrint.printWithColor(foregroundColors.YELLOW, String.format("%s already exists, skipping...\n", newFilenames), false);
+                ConsoleCustomPrint.printWithColor(ForegroundColors.YELLOW, String.format("%s already exists, skipping...\n", newFilenames), false);
             } else {
                 try (FileOutputStream fos = new FileOutputStream(newFilenames)) {
                     fos.write(fileContent);
