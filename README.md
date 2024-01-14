@@ -12,31 +12,52 @@ Este repositorio está destinado a proporcionar un entorno educativo donde puedo
 
 ### **[Console Custom Print](consoleCustomPrint/)**
   - Descripción: Más que un "programa", es una librería para poder imprimir de manera sencilla cosas en la terminal usando colores, negrita, subrayados y demás. También tiene una función para imprimir excepciones de una manera más legible y colorida.
-  - Estado: ```diff + Terminado ```
+  - Estado:
+  ```diff
+  + Terminado
+  ```
 
 ### **[File Creator](fileCreator/)**
   - Descripción: Un programa el cual crea archivos en base a la cantidad que el usuario indique, además del formato y el directorio. Si es un archivo de extensión PSeInt (.psc) o Java (.java), rellena automáticamente el archivo con la sintáxis básica del lenguaje (además, acepta recibir el package name como parametro).
-  - Estado: ```diff + Terminado ```
+  - Estado:
+  ```diff
+  + Terminado
+  ```
 
 ### **[File Duplicator](fileDuplicator/)**
   - Descripción: Simplemente duplica cualquier archivo que se le indique, la cantidad de veces que se le indique.
-  - Estado: ```diff + Terminado ```
+  - Estado:
+  ```diff
+  + Terminado
+  ```
 
 ### **[Material GUI](materialGUI/)**
   - Descripción: Un gestor de ventanas que siga la misma estética de Material Design usando Swing, y que sea fácilmente implementable en futuros proyectos
-  - Estado: ```diff - En Pausa ```
+  - Estado:
+  ```diff
+  - En Pausa
+  ```
 
 ### **[Palindrome Checker](palindromeChecker/)**
   - Descripción: Un programa de CLI muy sencillo para aprender a invertir Strings usando arrays o stacks.
-  - Estado: ```diff + Terminado ```
+  - Estado:
+  ```diff
+  + Terminado
+  ```
 
 ### **[Terminal Clock](terminalClock/)**
   - Descripción: Muestra un reloj digital en tiempo real en CLI junto con la hora horaria del sistema. En sistemas UNIX, implementa una clase (`UNIXCLIPrettifier`) que aprovecha los comandos `figlet`y `toilet` para imprimir el texto en grande y colorido.
-  - Estado: ```diff + Terminado ```
+  - Estado:
+  ```diff
+  + Terminado
+  ```
 
 ### **[Zoo Game Emulator](zooGameEmulator/)**
   - Descripción: Un juego sencillo, visita el zoológico de la Ciudad Sierra. Un proyecto enfocado para practicar tipos enumerados y POO a todo gas.
-  - Estado: ```diff ! En Proceso ```
+  - Estado:
+  ```diff
+  ! En Proceso
+  ```
 
 </details>
 
