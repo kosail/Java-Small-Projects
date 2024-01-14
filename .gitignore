@@ -2,5 +2,6 @@
 .vscode/
 bin/
 *.iml
-/src/com/.trash
+/src/com/trash
 resources/
+src/com/creditCardChecker/

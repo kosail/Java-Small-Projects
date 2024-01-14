@@ -9,12 +9,15 @@ public class MainClock {
 
     public static void main(String[] args) throws InterruptedException {
         Clock mainClock = new Clock();
-        // mainClock.set12HoursClock();
+        UNIXCLIPrettifier unixP = new UNIXCLIPrettifier();
+        
+        mainClock.set12HoursClock();
+        unixP.setGayColors();
 
         while (true) {
             clearScreen();
-            System.out.printf(mainClock.getTimeNow());
-            Thread.sleep(1000);
+            unixP.UNIXPrettyPrinter(mainClock.getTimeNow());
+            Thread.sleep(990);
         }
     }
 }

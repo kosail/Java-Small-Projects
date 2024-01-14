@@ -12,15 +12,23 @@ public class Clock {
     
     String getTimeNow() {
         clockBase = Calendar.getInstance(); // Instance a Calendar object called clockBase.
+        int minute = clockBase.get(Calendar.MINUTE);
+        int second = clockBase.get(Calendar.SECOND);
+        String timezoneID = clockBase.getTimeZone().getID();
 
         if (twelveHoursDisplay) { // If user has called set23HoursClock method, then...
-            if (clockBase.get(Calendar.HOUR_OF_DAY) < 12) { // Compares if the actual hour, in 24 hours format, is greater than 12. If so, then it's PM and adds PM to the String
-                return String.format("%d:%02d:%02d %s\n%s\n",clockBase.get(Calendar.AM_PM),clockBase.get(Calendar.MINUTE),clockBase.get(Calendar.SECOND), "AM", clockBase.getTimeZone().getID());
+            int hour = clockBase.get(Calendar.HOUR);
+
+            if (clockBase.get(Calendar.AM_PM) < 12) { // Compares if the actual hour, in 24 hours format, is greater than 12. If so, then it's PM and adds PM to the String
+
+                return String.format("%d:%02d:%02d %s\n%s\n", hour, minute, second, "AM", timezoneID);
+
             } else { // If the actual hour of the day is lesss than 12, then it's before noon, so it's AM.
-                return String.format("%d:%02d:%02d %s\n%s\n",clockBase.get(Calendar.AM_PM),clockBase.get(Calendar.MINUTE),clockBase.get(Calendar.SECOND), "PM", clockBase.getTimeZone().getID());
+                return String.format("%d:%02d:%02d %s\n%s\n", hour, minute, second, "PM", timezoneID);
             }
+            
         }
         // Default return in 24 hours format.
-        return String.format("%d:%02d:%02d\n%s\n",clockBase.get(Calendar.HOUR_OF_DAY),clockBase.get(Calendar.MINUTE),clockBase.get(Calendar.SECOND), clockBase.getTimeZone().getID());
+        return String.format("%02d:%02d:%02d\n%s\n",clockBase.get(Calendar.HOUR_OF_DAY), minute, second, timezoneID);
     }
 }
