@@ -1,10 +1,14 @@
 package com.terminalClock;
 
 import com.consoleCustomPrint.ConsoleCustomPrint;
-import com.consoleCustomPrint.ForegroundColors;
+
+/*
+* Things to enhance in the future:
+  ? Use a Keyboard event listener, so I can stop the program by pressing "q" instead of using a while (true) and exiting the program using CTRL+C as it is implemented now.
+* */
 
 public class MainClock {
-
+    
     public static void main(String[] args) throws InterruptedException {
         
         if (args.length == 0 || args.length > 3) {
@@ -36,7 +40,7 @@ public class MainClock {
             
         } else if (args[0].equalsIgnoreCase("-unix")) {
             UNIXCLIPrettifier unixP = new UNIXCLIPrettifier();
-
+            
             if (args.length == 3) {
                 if (args[2].equalsIgnoreCase("-metal")) {
                     unixP.setMetalColors();
