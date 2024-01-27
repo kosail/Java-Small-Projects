@@ -14,7 +14,7 @@ public abstract class baseAnimal {
     }
 
     public void readInformationCard() {
-        ConsoleCustomPrint.printWithColor(BackgroundColors.YELLOW, name.toUpperCase() + "\n", true);
+        ConsoleCustomPrint.printWithColor(BackgroundColors.YELLOW, String.format("%10s%s%10s\n","", name.toUpperCase(), ""), true);
         
         ConsoleCustomPrint.printWithColor(ForegroundColors.RED, "Nombre científico: ", false);
         System.out.println(scientificName);
@@ -26,8 +26,12 @@ public abstract class baseAnimal {
         System.out.println(details);
     }
 
-    protected abstract String makeSounds();
-    protected abstract String makeAction();
+    public String getName() {
+        return this.name;
+    }
+
+    public abstract String makeSounds();
+    public abstract String makeAction();
 
     public String randomAction() {
         final int randomAction = (int) (Math.random() * 10);
@@ -39,25 +43,25 @@ public abstract class baseAnimal {
             case 0:
                 return "...";
             case 1:
-                return "hace una voltereta y le guiña un ojo a los visitantes.";
+                return name + " hace una voltereta y le guiña un ojo a los visitantes.";
             case 2:
-                return "comienza a bailar breakdance inesperadamente, impresionando a todos alrededor.";
+                return name + " comienza a bailar breakdance inesperadamente, impresionando a todos alrededor.";
             case 3:
-                return "finge ser un superhéroe, secuestra a un niño de entre la gente y lo salva él mismo.";
+                return name + " finge ser un superhéroe, secuestra a un niño de entre la gente y lo salva él mismo.";
             case 4:
-                return "comienza a hacer standup... está haciendo chiste sobre el personal de hoteles.";
+                return name + " comienza a hacer standup... está haciendo chiste sobre el personal de hoteles.";
             case 5:
-                return "agarra un micrófono y comienza a cantar una sorprendentemente buena interpretación de una canción popular.";
+                return name + " agarra un micrófono y comienza a cantar una sorprendentemente buena interpretación de una canción popular.";
             case 6:
-                return "de repente comienza a jugar ajedrez, realizando movimientos estratégicos con un intelecto impresionante.";
+                return name + " de repente comienza a jugar ajedrez, realizando movimientos estratégicos con un intelecto impresionante.";
             case 7:
-                return "inicia una rutina de baile sincronizado con otros animales presos en el zoológico.";
+                return name + " inicia una rutina de baile sincronizado con otros animales presos en el zoológico.";
             case 8:
-                return "saca una pequeña laptop y comienza a programar un emulador de juegos de zoológico en Java... pero parece tener frustración con los NullPointerExceptions.";
+                return name + " saca una pequeña laptop y comienza a programar un emulador de juegos de zoológico en Java... pero parece tener frustración con los NullPointerExceptions.";
             case 9:
-                return "está intentando romper los barrotes y escapar, y el personal del zoológico le está arrojando piedras para calmarlo.";
+                return name + " está intentando romper los barrotes y escapar, y el personal del zoológico le está arrojando piedras para calmarlo.";
             case 10:
-                return "comienza a dirigir una orquesta, mostrando su talento musical oculto.";
+                return name + " comienza a dirigir una orquesta, mostrando su talento musical oculto.";
             default:
                 return "...";
         }
