@@ -34,8 +34,7 @@ public abstract class baseAnimal {
     public abstract String makeAction();
 
     public String randomAction() {
-        final int randomAction = (int) (Math.random() * 10);
-        return randomActionGenerator(randomAction);
+        return randomActionGenerator((int) (Math.random() * 10));
     }
     
     private String randomActionGenerator(int randomAction) {

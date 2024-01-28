@@ -112,7 +112,7 @@ public class Zoo {
                     
                     ConsoleCustomPrint.clearScreen();
                     UndergroundZoo undergroundZoo = new UndergroundZoo();
-                    undergroundZoo.goUndergound();
+                    undergroundZoo.goUndergound(bReader);
                 }
             }
 
