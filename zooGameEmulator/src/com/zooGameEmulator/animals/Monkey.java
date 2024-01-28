@@ -23,9 +23,9 @@ public class Monkey extends baseAnimal {
             case 7:
                 return "Ooh ooh, aah aah!";
             case 8:
-                return "It is difficult to find happiness within oneself, but it is impossible to find it anywhere else.";
+                return "Es difícil encontrar la felicidad dentro de uno mismo, pero es imposible encontrarla en cualquier otro lugar.";
             case 9:
-                return "To have died once is enough.";
+                return "Haber muerto una vez es suficiente.";
             case 10:
                 return "Memento Mori...";
             default:
