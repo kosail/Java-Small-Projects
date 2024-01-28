@@ -22,7 +22,7 @@ public abstract class baseAnimal {
         ConsoleCustomPrint.printWithColor(ForegroundColors.GREEN, "Edad de este ejemplar: ", false);
         System.out.println(age);
         
-        ConsoleCustomPrint.printWithColor(ForegroundColors.BLUE_LIGHT, "Información sobre este animal:", false);
+        ConsoleCustomPrint.printWithColor(ForegroundColors.BLUE_LIGHT, "Información sobre este animal: ", false);
         System.out.println(details);
     }
 

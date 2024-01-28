@@ -77,7 +77,9 @@ public class Zoo {
                     case "tigre de java":
                     case "java":
                         animalInteractions(javaTigerNguyen);
-                    case "pingüinos":
+                        break;
+                    case "pinguino":
+                        ConsoleCustomPrint.printWithColor(BackgroundColors.RED, "Santuario de pingüinos bajo construcción...\n\n", true);
                         break;
                     case "salir":
                     System.out.println("Esperamos hayas tenido una buena visita, ¡y te esperamos pronto!");
@@ -85,21 +87,21 @@ public class Zoo {
                     default:
                         break;
                 }
-            } catch (IOException e) {
+            } catch (IOException | NumberFormatException e) {
                 ConsoleCustomPrint.exceptionSummary(e);
             }
 
-            if (visitsCounter > 1 && ! isSpecialTicketOffered) {
+            if (visitsCounter > 5 && ! isSpecialTicketOffered) {
                 isSpecialTicketOffered = true;
                 ConsoleCustomPrint.clearScreen();
                 ConsoleCustomPrint.printWithColor(ForegroundColors.RED, "Oye amigo... he visto que has estando rondando el zoológico.\n", false);
                 ConsoleCustomPrint.printWithColor(ForegroundColors.RED, "¿No buscas algo más... interesante?\n", true);
-                ConsoleCustomPrint.printWithColor(ForegroundColors.RED, "¿Comprar ticket especial? (Costo $2200)", false);
+                ConsoleCustomPrint.printWithColor(ForegroundColors.RED, "¿Comprar ticket especial? (Costo $2200)\n", false);
                 ConsoleCustomPrint.printWithColor(ForegroundColors.WHITE, ">> ", false);
                 String buySpecialTicket = bReader.readLine();
 
                 if (buySpecialTicket.equalsIgnoreCase("si") || buySpecialTicket.equalsIgnoreCase("sí")) {
-                    ConsoleCustomPrint.printWithColor(BackgroundColors.RED, "\nQue pases un rato", true);
+                    ConsoleCustomPrint.printWithColor(BackgroundColors.RED, "\nQue pases un buen rato", true);
 
                     for (int i=0;i<3;i++) {
                         try {
@@ -111,15 +113,15 @@ public class Zoo {
                     }
                     
                     ConsoleCustomPrint.clearScreen();
-                    UndergroundZoo undergroundZoo = new UndergroundZoo();
-                    undergroundZoo.goUndergound(bReader);
+                    UndergroundZoo undergroundZoo = new UndergroundZoo(bReader, this);
+                    undergroundZoo.enterUndergroundZoo();
                 }
             }
 
         } while (! userChoice.equalsIgnoreCase("salir"));
     }
 
-    private void animalInteractions(baseAnimal animal) throws IOException {
+    protected void animalInteractions(baseAnimal animal) throws IOException {
         animal.readInformationCard();
         ConsoleCustomPrint.printWithColor(ForegroundColors.BLUE_DARK, String.format("\n%s\n\n", animal.makeAction()), false);
 
