@@ -117,10 +117,10 @@ public class Card  {
 
 	private boolean validateExpirationDate() throws InvalidExpirationDateException {
 		final Calendar timedateNow = Calendar.getInstance();
-		final int month = timedateNow.get(Calendar.MONTH);
+		final int month = timedateNow.get(Calendar.MONTH) + 1;
 		final int year = timedateNow.get(Calendar.YEAR) % 100;
 
-		if ((expDate[0] > 12 || expDate[1] > year) || expDate[1] == year && expDate[0] > month) {
+		if ((expDate[0] > 12 || expDate[1] > year) || (expDate[1] == year && expDate[0] > month) || year - expDate[1] > 4) {
 			throw new InvalidExpirationDateException("The expiration date is not valid.");
 		}
 
