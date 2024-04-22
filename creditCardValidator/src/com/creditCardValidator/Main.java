@@ -5,11 +5,15 @@ import com.creditCardValidator.CardException.*;
 public class Main {
 	public static void main(String[] args) {
 		try {
-			Card card = new Card(4652833662434486L, "0419", "081");
+			Card card = new Card(4652833662434486L, "0420", "081");
 			boolean[] cardStatus = card.validateCard();
 
-			for (boolean status : cardStatus) {
-				System.out.println(status);
+			if (! cardStatus[0]) {
+				System.err.println("La tarjeta es invalida");
+			} else if (! cardStatus[1]) {
+				System.err.println("La fecha de vencimiento es inválida.");
+			} else {
+				System.out.println("La tarjeta es válida.");
 			}
 
 		} catch (CardException e) {

@@ -3,11 +3,7 @@ package com.materialGUI;
 // For the frame styles, like icon, background image, etc...
 import javax.swing.JPanel;
 import javax.swing.ImageIcon;
-import java.awt.Image;
-import java.awt.Graphics;
-import java.awt.Color;
-import java.awt.SystemColor;
-import java.awt.Dimension;
+import java.awt.*;
 //import com.materialGUI.design.*;
 
 public class PanelManager extends JPanel {

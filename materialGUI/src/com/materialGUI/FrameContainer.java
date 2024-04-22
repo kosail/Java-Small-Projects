@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 import java.awt.Toolkit;
 // For the frame styles, like icon, background image, etc...
 import java.awt.Image;
-import java.awt.Color;
 
 public class FrameContainer extends JFrame {
 
