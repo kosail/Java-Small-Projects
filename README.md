@@ -1,9 +1,8 @@
-# Proyecto Java Small Projects 🚀
-
-¡Bienvenido al repositorio Java Small Projects! 🌟 Este es un centro de experimentación y aprendizaje diseñado para ayudarme a mejorar mis habilidades en Java a través de proyectos prácticos o que me parezcan divertidos. La idea es explorar conceptos de programación, aplicar buenas prácticas y, quién sabe, ¡crear algo que pueda ser útil algún día!
+# Java Small Projects 🚀
+Este es un centro de experimentación y aprendizaje diseñado para ayudarme a mejorar mis habilidades en Java a través de proyectos prácticos o que me parezcan divertidos. La idea es explorar conceptos de programación, aplicar buenas prácticas y, tal vez, crear algo que pueda ser útil algún día.
 
 ## 📘 Descripción
-Este repositorio está destinado a proporcionar un entorno educativo donde puedo trabajar en proyectos relacionados con Java, desde los fundamentos hasta conceptos más avanzados. La estructura del repositorio es bastante simple: todos los proyectos estarán en su propia carpeta, en la cual tendrán la estructura básica de los proyectos de Java (src/com). Intento no complicar demasiado las cosas.
+La estructura del repositorio es bastante simple: todos los proyectos estarán en su propia carpeta, en la cual tendrán la estructura básica de los proyectos de Java (src/com). Intento no complicar demasiado las cosas.
 
 ## 🚀 Proyectos Activos
 
