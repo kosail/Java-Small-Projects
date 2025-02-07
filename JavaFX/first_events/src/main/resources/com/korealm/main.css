@@ -1,0 +1,8 @@
+/* All properties in css should be precided by:
+                    -fx- 
+            in order to work.
+*/
+
+.root {
+    -fx-background-color: #202020;
+}

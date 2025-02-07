@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="657.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.korealm.Controller">
+   <children>
+      <ImageView fx:id="imageShowed" fitHeight="296.0" fitWidth="315.0" layoutX="237.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@blb.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="statusLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="282.0" layoutY="397.0" prefHeight="40.0" prefWidth="93.0" text="OFF">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="checkbox" alignment="CENTER" contentDisplay="CENTER" layoutX="241.0" layoutY="520.0" mnemonicParsing="false" onAction="#change" prefHeight="53.0" prefWidth="176.0" text="ON/OFF">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </CheckBox>
+   </children>
+</AnchorPane>

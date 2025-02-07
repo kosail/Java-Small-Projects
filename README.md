@@ -31,10 +31,10 @@ La estructura del repositorio es bastante simple: todos los proyectos estarán e
   ```
 
 ### **[Material GUI](materialGUI/)**
-  - Descripción: Un gestor de ventanas que siga la misma estética de Material Design usando Swing, y que sea fácilmente implementable en futuros proyectos
+  - Descripción: Un gestor de ventanas que siga la misma estética de Material Design usando Swing, y que sea fácilmente implementable en futuros proyectos. Este proyecto tenía la sola intención de aprender Swing, así que al lograrlo, fue abandonado en favor de JavaFX.
   - Estado:
   ```diff
-  - En Pausa
+  - Deprecated
   ```
 
 ### **[Palindrome Checker](palindromeChecker/)**
@@ -52,11 +52,19 @@ La estructura del repositorio es bastante simple: todos los proyectos estarán e
   ```
 
 ### **[Zoo Game Emulator](zooGameEmulator/)**
-  - Descripción: Un juego sencillo, visita el zoológico de la Ciudad Sierra. Un proyecto enfocado para practicar tipos enumerados y POO a todo gas.
+  - Descripción: Un juego sencillo, visita el zoológico de la Ciudad Sierra. Un proyecto enfocado para practicar tipos enumerados y POO a todo gas (Objetivo cumplido, por lo que este proyecto fue abandonado).
+  - Estado:
+  ```diff
+  - Deprecated
+  ```
+
+  ### **[JavaFX](JavaFX/)**
+  - Descripción: Programas muy pequeños y sencillos para aprender a usar los diferentes componentes de JavaFX. Aquí no hay ningún programa con un fin real o específico, es simple repositorio para mí mismo.
   - Estado:
   ```diff
   ! En Proceso
   ```
+
 
 </details>
 

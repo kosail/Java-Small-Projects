@@ -1,0 +1,16 @@
+.root {
+    -fx-background-color: black;
+}
+
+#topbar {
+    -fx-background-color:#8c2727;
+}
+
+#ks_button {
+    -fx-background-color: #f1f1f1;
+}
+
+#ks_button:hover, #ks_button:focus {
+    -fx-background-color: #edc4c4;
+    -fx-font-size: 1.2em;
+}
